@@ -8,7 +8,7 @@ INSTALL = install
 
 .PHONY: install clean
 check-email: check-email.c
-	$(CC) $(CFLAGS) $(shell curl-config --cflags) $(LDFLAGS) $(shell curl-config --libs) -lnetrc -o $@ $<
+	$(CC) $(CFLAGS) $(shell curl-config --cflags) -o $@ $< $(LDFLAGS) $(shell curl-config --libs) -lnetrc
 install: check-email
 	$(INSTALL) check-email $(bindir)
 clean:
